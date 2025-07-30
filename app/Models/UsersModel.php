@@ -43,4 +43,20 @@ class UsersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getUserById($id) {
+        $db = \Config\Database::connect();
+        $sql = "SELECT * FROM users WHERE id = ?";
+        $query = $db->query($sql, [$id]);
+        $results = $query->getResultArray(); 
+        return $results;
+    }
+
+    public function deleteUserById($id) {
+        $db = \Config\Database::connect();
+        $sql = "DELETE FROM users WHERE id = ?";
+        $query = $db->query($sql, [$id]);
+        $results = $query->getResultArray(); 
+        return $results;
+    }
 }

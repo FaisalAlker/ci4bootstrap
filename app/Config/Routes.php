@@ -39,6 +39,12 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 $routes->get('/sorting', 'Home::sorting');
 $routes->get('/datatables', 'Home::datatables');
 
+// Read User Data by ID
+$routes->get('userdata/(:num)', 'Users::userData/$1');
+
+// Post Update Data
+$routes->post('update_user', 'Users::update_user');
+
 
 
 

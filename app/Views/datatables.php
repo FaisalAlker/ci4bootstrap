@@ -8,12 +8,12 @@
     <link href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
-
 <table id="myTable" class="display table table-bordered">
     <thead>
         <tr>
             <th>ID</th>
             <th>Email</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -21,13 +21,14 @@
             <tr>
                 <td><?= $user['id'] ?></td>
                 <td><?= $user['email'] ?></td>
+                <td>
+                    <a href="<?=site_url('/userdata/'.$user['id'])?>" target="_blank">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
             </tr>
         <?php endforeach ?>
     </tbody>
 </table>
-
-    <link rel="stylesheet" href="<?=site_url('/css/main.css')?>" />
-    <script src="<?=site_url('/js/main.js')?>"></script>
 
 <!-- jQuery: load BEFORE DataTables -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
